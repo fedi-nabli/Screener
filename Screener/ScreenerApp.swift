@@ -13,5 +13,9 @@ struct ScreenerApp: App {
         WindowGroup {
             ContentView()
         }
+        
+        Settings {
+            SettingsView()
+        }
     }
 }
