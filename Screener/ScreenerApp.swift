@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct ScreenerApp: App {
+    
+    @StateObject var vm = ScreencaptureViewModel()
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+        Window("Screener", id: "main", content: {
+            ContentView(vm: vm)
+        })
         
         Settings {
             SettingsView()
