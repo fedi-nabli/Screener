@@ -13,10 +13,10 @@ struct SettingsView: View {
             KeyboardSettingsView()
                 .tabItem { Label("Keyboard", systemImage: "keyboard") }
             
-            Text("Second Second Second Second Second Second Second")
-                .tabItem { Label("Second", systemImage: "gear") }
+            MenubarSettingsView()
+                .tabItem { Label("Menubar Extra", systemImage: "rectangle.topthird.inset.filled") }
         }
-        .padding()
+        .frame(minWidth: 400, minHeight: 300)
     }
 }
 
