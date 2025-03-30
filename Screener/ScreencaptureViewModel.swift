@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import KeyboardShortcuts
 
 class ScreencaptureViewModel: ObservableObject {
-    @Published var images = [NSImage]()
     
     enum ScreenshotTypes {
         case full
@@ -24,6 +24,20 @@ class ScreencaptureViewModel: ObservableObject {
                 case .area:
                     ["-cs"]
             }
+        }
+    }
+    
+    @Published var images = [NSImage]()
+    
+    init() {
+        KeyboardShortcuts.onKeyUp(for: .screenshotCapture) { [self] in
+            self.takeScreenshot(for: .area)
+        }
+        KeyboardShortcuts.onKeyUp(for: .screenshotCaptureFull) { [self] in
+            self.takeScreenshot(for: .full)
+        }
+        KeyboardShortcuts.onKeyUp(for: .screenshotCaptureWindow) { [self] in
+            self.takeScreenshot(for: .window)
         }
     }
     
